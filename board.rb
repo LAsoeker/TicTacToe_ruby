@@ -3,16 +3,7 @@ class Board
 
   def initialize()
     @state = Array.new(9) {|n| n+1}
-    @WINNING_CONSTILATIONS = [
-      [@state[0], @state[1], @state[2]],
-      [@state[0], @state[4], @state[8]],
-      [@state[0], @state[3], @state[6]], 
-      [@state[1], @state[4], @state[7]],  
-      [@state[2], @state[5], @state[8]],  
-      [@state[3], @state[4], @state[5]],  
-      [@state[6], @state[7], @state[8]],  
-      [@state[2], @state[4], @state[6]]
-    ]
+    update_winning_contilations
   end
 
   def display
@@ -29,6 +20,17 @@ class Board
       display
   end
 
+  def legalmove?(input)
+    @state[input - 1].is_a?(Numeric)
+  end
+  
+  def reset
+    @state = Array.new(9) {|n| n+1}
+    update_winning_contilations
+  end
+  
+  private
+  
   def update_winning_contilations
     @WINNING_CONSTILATIONS = [
       [@state[0], @state[1], @state[2]],
@@ -42,22 +44,5 @@ class Board
     ]
   end
 
-  def legalmove?(input)
-    @state[input - 1].is_a?(Numeric)
-  end
-
-  def reset
-    @state = Array.new(9) {|n| n+1}
-    @WINNING_CONSTILATIONS = [
-      [@state[0], @state[1], @state[2]],
-      [@state[0], @state[4], @state[8]],
-      [@state[0], @state[3], @state[6]], 
-      [@state[1], @state[4], @state[7]],  
-      [@state[2], @state[5], @state[8]],  
-      [@state[3], @state[4], @state[5]],  
-      [@state[6], @state[7], @state[8]],  
-      [@state[2], @state[4], @state[6]]
-    ]
-  end
 end
 
