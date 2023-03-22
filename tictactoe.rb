@@ -7,7 +7,7 @@ class TicTacToe
   include String_animations
 
   def initialize()
-    puts File.read('/Users/maximiliansoeker/odin-project/ruby/projects/TicTacToe_ruby/tictactoe.txt')
+    puts File.read('./tictactoe.txt')
     puts "\n\n\n\n"
     animate_text "\t\tHello, Welcome to TicTacToe!\n\n\t\tPlayer 1 please enter your name: "
     @player1 = Player.new(gets.chomp, 1)
